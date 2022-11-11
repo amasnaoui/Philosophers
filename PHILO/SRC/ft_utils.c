@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_utiles.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasnaou <amasnaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 15:51:07 by amasnaou          #+#    #+#             */
-/*   Updated: 2022/07/29 13:02:48 by amasnaou         ###   ########.fr       */
+/*   Created: 2022/11/08 11:14:26 by amasnaou          #+#    #+#             */
+/*   Updated: 2022/11/09 09:53:39 by amasnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void *routine()
+void	ft_putendl_fd(char *s, int fd)
 {
-	printf("Test thread\n");
-	sleep(3);
-	printf("end thread\n");
-	return(0);
+	ft_putstr_fd (s, fd);
+	write (fd, "\n", 1);
 }
 
-int main()
+void	ft_putstr_fd(char *s, int fd)
 {
-	pthread_t t1;
-	pthread_t t2;
+	int	i;
 
-	pthread_create(&t1,NULL, &routine, NULL);
-	pthread_create(&t2,NULL, &routine, NULL);
-	pthread_join(t1, NULL);
-	pthread_join(t2, NULL);
-	return 0;
+	i = -1;
+	if (!s)
+		return ((void)0);
+	while (s[++i])
+		write (fd, &s[i], 1);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (0);
+	}
+	return (1);
 }

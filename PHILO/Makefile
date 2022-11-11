@@ -2,7 +2,7 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-CFILES = philo.c ft_utils.c ft_atoi.c\
+CFILES = philo.c ft_utils.c ft_atoi.c ft_check_args.c\
 
 OFILES = $(addprefix $(OBJ_DIR)/,$(CFILES:.c=.o))
 
